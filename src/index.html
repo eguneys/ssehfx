@@ -30,7 +30,27 @@
     <script>
 
      window.addEventListener('DOMContentLoaded', () => {
-       kcapeW.default(document.getElementById('app'), {});
+       let api = kcapeW.default(document.getElementById('app'), {});
+       let piece = {
+         role: 'b',
+         color: 'w'
+       };
+
+       let orig = [4,4];
+
+       let dests = [[5,3],[3,5],[5,5], [3,3]];
+
+       dests.forEach(dest => {
+         api.displace({
+           piece,
+           orig,
+           dest
+         }, {
+           wait: 50,
+           repeat: 300,
+           duration: 1000
+         });
+       });
      });
      
     </script>
